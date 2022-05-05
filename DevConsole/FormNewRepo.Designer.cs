@@ -59,7 +59,6 @@
             this.TextBoxName.Name = "TextBoxName";
             this.TextBoxName.Size = new System.Drawing.Size(360, 22);
             this.TextBoxName.TabIndex = 1;
-            this.TextBoxName.TextChanged += new System.EventHandler(this.TextBoxName_TextChanged);
             // 
             // ComboBoxType
             // 
@@ -120,7 +119,6 @@
             // 
             // TextBoxLocation
             // 
-            this.TextBoxLocation.Enabled = false;
             this.TextBoxLocation.Location = new System.Drawing.Point(12, 72);
             this.TextBoxLocation.Name = "TextBoxLocation";
             this.TextBoxLocation.Size = new System.Drawing.Size(360, 22);

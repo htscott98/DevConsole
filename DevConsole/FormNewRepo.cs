@@ -124,15 +124,5 @@ namespace DevConsole
             f.ShowDialog();
         }
 
-        private void TextBoxName_TextChanged(object sender, EventArgs e)
-        {
-
-            if (newRepo == false)
-            {
-                return;
-            }
-            
-            TextBoxLocation.Text = @"C:\Users\htsco\OneDrive\DevProjects\" + TextBoxName.Text;
-        }
     }
 }
