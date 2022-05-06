@@ -157,6 +157,7 @@ namespace DevConsole
                 f.devTask = taskTask;
                 f.ShowDialog();
                 PopulateLabelsForTask();
+                GlobalCode.oldList = taskTask.TaskListID.ToString();
 
             }
             catch (Exception ex)
@@ -261,6 +262,7 @@ namespace DevConsole
 
                 DevTaskTasks devTask = new DevTaskTasks();
                 devTask.ID = taskTask.ID;
+                GlobalCode.oldList = devTask.TaskListID.ToString();
 
                 if (devTask.DeleteRecord() == true)
                 {
@@ -335,6 +337,7 @@ namespace DevConsole
                 devTask.Enabled = CheckBoxTaskEnabled.Checked;
                 devTask.Description = TextBoxTaskDescription.Text;
 
+                GlobalCode.newList = devTaskLists.ID.ToString();
 
                 if (taskTask != null)
                 {

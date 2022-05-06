@@ -21,43 +21,70 @@ namespace DevConsole
         {
             FormNewTasks f = new FormNewTasks();
             f.ShowDialog();
-            FormDevTasks_Shown(null, null);
+            RefreshOldAndNewList();
         }
 
-        private void PopulateLists()
+        private void PopulateLists(string listID = null)
         {
             try
             {
-                List<DevTaskLists> devTaskLists = DevTaskLists.GetListOfObjectsEnabled();
 
-                foreach (DevTaskLists list in devTaskLists)
+                if (listID == null)
                 {
-                    FlowLayoutPanel layoutPanel = new FlowLayoutPanel();
-                    layoutPanel.Margin = new Padding(0,0,0,0);
-                    layoutPanel.Padding = new Padding(0);
-                    int height = FlowLayoutPanelMain.Height;
-                    layoutPanel.MinimumSize = new Size(FlowLayoutPanelMain.Width / 5, height);
-                    layoutPanel.MaximumSize = new Size(FlowLayoutPanelMain.Width / 3, height);
-                    layoutPanel.Size = new Size(FlowLayoutPanelMain.Width / devTaskLists.Count, height);
-                    layoutPanel.BorderStyle = BorderStyle.FixedSingle;
-                    layoutPanel.HorizontalScroll.Visible = false;
-                    layoutPanel.HorizontalScroll.Enabled = false;
-                    layoutPanel.HorizontalScroll.Maximum = 0;
-                    layoutPanel.AutoScroll = true;
-                    layoutPanel.AllowDrop = true;
-                    layoutPanel.Name = list.ID.ToString();
-                    layoutPanel.DragOver += LayoutPanel_DragOver;
-                    layoutPanel.DragEnter += LayoutPanel_DragEnter;
-                    layoutPanel.DragDrop += LayoutPanel_DragDrop;
-                    layoutPanel.DragLeave += LayoutPanel_DragLeave;
+                    List<DevTaskLists> devTaskLists = DevTaskLists.GetListOfObjectsEnabled();
 
-                    FlowLayoutPanelMain.Controls.Add(layoutPanel);
+                    foreach (DevTaskLists list in devTaskLists)
+                    {
+                        FlowLayoutPanel layoutPanel = new FlowLayoutPanel();
+                        layoutPanel.Margin = new Padding(0, 0, 0, 0);
+                        layoutPanel.Padding = new Padding(0);
+                        int height = FlowLayoutPanelMain.Height;
+                        layoutPanel.MinimumSize = new Size(FlowLayoutPanelMain.Width / 5, height);
+                        layoutPanel.MaximumSize = new Size(FlowLayoutPanelMain.Width / 3, height);
+                        layoutPanel.Size = new Size(FlowLayoutPanelMain.Width / devTaskLists.Count, height);
+                        layoutPanel.BorderStyle = BorderStyle.FixedSingle;
+                        layoutPanel.HorizontalScroll.Visible = false;
+                        layoutPanel.HorizontalScroll.Enabled = false;
+                        layoutPanel.HorizontalScroll.Maximum = 0;
+                        layoutPanel.AutoScroll = true;
+                        layoutPanel.AllowDrop = true;
+                        layoutPanel.Name = list.ID.ToString();
+                        layoutPanel.DragOver += LayoutPanel_DragOver;
+                        layoutPanel.DragEnter += LayoutPanel_DragEnter;
+                        layoutPanel.DragDrop += LayoutPanel_DragDrop;
+                        layoutPanel.DragLeave += LayoutPanel_DragLeave;
+
+                        FlowLayoutPanelMain.Controls.Add(layoutPanel);
 
 
-                    PopulateTasks(list.ID.ToString(), list.Name, layoutPanel);
+                        PopulateTasks(list.ID.ToString(), list.Name, layoutPanel);
 
+
+                    }
 
                 }
+                else
+                {
+                    DevTaskLists devTaskLists = DevTaskLists.GetObjectByID(listID);
+
+                    Control[] control = FlowLayoutPanelMain.Controls.Find(listID, false);
+
+                    FlowLayoutPanel layoutPanel = null;
+
+                    if (control.Length == 1)
+                    {
+                        layoutPanel = (FlowLayoutPanel)control[0];
+                    }
+
+                    PopulateTasks(devTaskLists.ID.ToString(), devTaskLists.Name, layoutPanel);
+
+                }
+
+
+
+                
+
+                
 
             }
             catch (Exception ex)
@@ -83,6 +110,7 @@ namespace DevConsole
 
                 if (listID == "Garbage")
                 {
+                    GlobalCode.newList = listID;
                     DeleteTask(wrapper.Control, null);
                     list.BackColor = SystemColors.Control;
                 }
@@ -96,9 +124,11 @@ namespace DevConsole
 
                     if (devTaskTasks.UpdateTaskList() == true)
                     {
-                        FormDevTasks_Shown(null, null);
+                        GlobalCode.newList = listID;
+                        RefreshOldAndNewList();
                     }
                 }
+
 
                 
 
@@ -327,7 +357,7 @@ namespace DevConsole
         private void TaskLayout_MouseDown(object sender, MouseEventArgs e)
         {
             Control control = sender as Control;
-
+            GlobalCode.oldList = control.Parent.Name;
             control.DoDragDrop(new MyWrapper(control), DragDropEffects.Copy);
         }
 
@@ -384,7 +414,7 @@ namespace DevConsole
                     attachedLabels.TaskID = Convert.ToInt32(control.Name);
                     attachedLabels.DeleteRecordByTaskID();
 
-                    FormDevTasks_Shown(null, null);
+                    RefreshOldAndNewList();
                 }
                 else
                 {
@@ -414,8 +444,64 @@ namespace DevConsole
 
                 FormNewTasks f = new FormNewTasks();
                 f.taskTask = taskTask;
+                GlobalCode.oldList = taskTask.TaskListID.ToString();
                 f.ShowDialog();
-                FormDevTasks_Shown(null, null);
+                RefreshOldAndNewList();
+
+                //FormDevTasks_Shown(null, null);
+
+            }
+            catch (Exception ex)
+            {
+                GlobalCode.ExceptionHandler(ex);
+            }
+        }
+
+        private void RefreshOldAndNewList()
+        {
+
+            try
+            {
+
+                if (GlobalCode.oldList == null && GlobalCode.newList == null)
+                {
+                    FormDevTasks_Shown(null, null);
+                }
+
+                if (GlobalCode.oldList == GlobalCode.newList)
+                {
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(GlobalCode.oldList) == false) {
+
+                    Control[] oldListControls = FlowLayoutPanelMain.Controls.Find(GlobalCode.oldList, false);
+
+                    if (oldListControls.Length == 1)
+                    {
+                        oldListControls[0].Controls.Clear();
+                        oldListControls[0].BackColor = SystemColors.Control;
+                        PopulateLists(oldListControls[0].Name);
+                    }
+
+                }
+
+
+                if (string.IsNullOrEmpty(GlobalCode.newList) == false) {
+
+                    Control[] newListControls = FlowLayoutPanelMain.Controls.Find(GlobalCode.newList, false);
+
+                    if (newListControls.Length == 1)
+                    {
+                        newListControls[0].Controls.Clear();
+                        newListControls[0].BackColor = SystemColors.Control;
+                        PopulateLists(newListControls[0].Name);
+                    }
+
+                }
+
+                GlobalCode.oldList = null;
+                GlobalCode.newList = null;
 
             }
             catch (Exception ex)
@@ -439,8 +525,9 @@ namespace DevConsole
 
                 FormEditLabels f = new FormEditLabels();
                 f.devTask = taskTask;
+                GlobalCode.oldList = taskTask.TaskListID.ToString();
                 f.ShowDialog();
-                FormDevTasks_Shown(null, null);
+                RefreshOldAndNewList();
 
             }
             catch (Exception ex)

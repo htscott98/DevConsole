@@ -17,6 +17,10 @@ namespace DevConsole
         public static List<string> labelFilters = new List<string>();
         public static string stringFilter;
 
+        public static string oldList;
+        public static string newList;
+
+
         public static UserAccess oUser;
 
         public static DialogResult ShowMSGBox(string strText,
