@@ -166,7 +166,7 @@
             this.ButtonOpen.Name = "ButtonOpen";
             this.ButtonOpen.Size = new System.Drawing.Size(111, 35);
             this.ButtonOpen.TabIndex = 7;
-            this.ButtonOpen.Text = "Open";
+            this.ButtonOpen.Text = "Download";
             this.ButtonOpen.UseVisualStyleBackColor = true;
             this.ButtonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
             // 

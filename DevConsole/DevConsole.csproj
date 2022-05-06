@@ -38,8 +38,13 @@
     <ApplicationIcon>DevIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Scripts\**" />
+    <EmbeddedResource Remove="Scripts\**" />
+    <None Remove="Scripts\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="MasterCode">
-      <HintPath>..\..\RunTimes\MasterCode\Net6\MasterCode.dll</HintPath>
+      <HintPath>..\..\..\Published\RunTimes\MasterCode\Net6\MasterCode.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.IdentityModel" />
@@ -47,9 +52,6 @@
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Scripts\BackupRepos.bat" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -108,14 +108,46 @@ namespace DevConsole
         {
             try
             {
-                Process.Start(new ProcessStartInfo(repository.Location + @"\" + repository.Name + ".sln") { UseShellExecute = true });
-                return;
+                string DevRootDir = @"C:\Users\htsco\Desktop\Development\Dev\";
+
+                if (Directory.Exists(DevRootDir + TextBoxName.Text))
+                {
+                    if (GlobalCode.ShowMSGBox("A local copy Of " + TextBoxName.Text + " already exists." + Environment.NewLine + Environment.NewLine + "Would you Like To open it?", MessageBoxIcon.Question, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        OpenSolution(DevRootDir + TextBoxName.Text);
+                    }
+                }
+                else
+                {
+                    var oProcess = new Process();
+                    oProcess.StartInfo.FileName = "git-cmd.exe";
+                    oProcess.StartInfo.UseShellExecute = false;
+                    oProcess.StartInfo.Arguments = "git clone " + TextBoxLocation.Text;
+                    oProcess.StartInfo.WorkingDirectory = DevRootDir + TextBoxName.Text;
+                    oProcess.StartInfo.CreateNoWindow = false;
+                    oProcess.Start();
+                    oProcess.WaitForExit();
+                    oProcess.Close();
+                    if (GlobalCode.ShowMSGBox("Open " + TextBoxName.Text + "?", MessageBoxIcon.Question, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        OpenSolution(DevRootDir + TextBoxName.Text);
+                    }
+                }
+
             }
             catch (Exception ex)
             {
                 GlobalCode.ExceptionHandler(ex);
             }
         }
+
+        private void OpenSolution(string path)
+        {
+            var mySolution = Directory.GetFiles(path, "*.sln", SearchOption.AllDirectories);
+            Process.Start(new ProcessStartInfo(mySolution[0].ToString()) { UseShellExecute = true });
+            System.Threading.Thread.Sleep(5000);
+        }
+
 
         private void ButtonLogs_Click(object sender, EventArgs e)
         {
