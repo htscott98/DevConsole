@@ -84,6 +84,7 @@ namespace DevConsole
                 if (listID == "Garbage")
                 {
                     DeleteTask(wrapper.Control, null);
+                    list.BackColor = SystemColors.Control;
                 }
                 else
                 {
