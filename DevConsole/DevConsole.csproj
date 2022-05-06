@@ -36,11 +36,16 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>DevIcon.ico</ApplicationIcon>
+    <PlatformTarget>x64</PlatformTarget>
+    <PackageIcon>DevIcon.ico</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Scripts\**" />
     <EmbeddedResource Remove="Scripts\**" />
     <None Remove="Scripts\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DevIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MasterCode">
@@ -66,8 +71,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DevIcon.ico" />
-    <Content Include="Images\DevIcon.ico" />
+    <Content Include="DevIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
