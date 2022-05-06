@@ -49,6 +49,7 @@ namespace DevConsole
                     layoutPanel.DragOver += LayoutPanel_DragOver;
                     layoutPanel.DragEnter += LayoutPanel_DragEnter;
                     layoutPanel.DragDrop += LayoutPanel_DragDrop;
+                    layoutPanel.DragLeave += LayoutPanel_DragLeave;
 
                     FlowLayoutPanelMain.Controls.Add(layoutPanel);
 
@@ -65,6 +66,12 @@ namespace DevConsole
             }
         }
 
+        private void LayoutPanel_DragLeave(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            control.BackColor = SystemColors.Control;
+        }
+
         private void LayoutPanel_DragDrop(object sender, DragEventArgs e)
         {
             try
@@ -74,16 +81,25 @@ namespace DevConsole
                 Control list = sender as Control;
                 string listID = list.Name;
 
-                string taskID = wrapper.Control.Name;
-
-                DevTaskTasks devTaskTasks = new DevTaskTasks();
-                devTaskTasks.ID = Convert.ToInt32(taskID);
-                devTaskTasks.TaskListID = Convert.ToInt32(listID);
-
-                if (devTaskTasks.UpdateTaskList() == true)
+                if (listID == "Garbage")
                 {
-                    FormDevTasks_Shown(null, null);
+                    DeleteTask(wrapper.Control, null);
                 }
+                else
+                {
+                    string taskID = wrapper.Control.Name;
+
+                    DevTaskTasks devTaskTasks = new DevTaskTasks();
+                    devTaskTasks.ID = Convert.ToInt32(taskID);
+                    devTaskTasks.TaskListID = Convert.ToInt32(listID);
+
+                    if (devTaskTasks.UpdateTaskList() == true)
+                    {
+                        FormDevTasks_Shown(null, null);
+                    }
+                }
+
+                
 
 
 
@@ -101,6 +117,8 @@ namespace DevConsole
 
         private void LayoutPanel_DragOver(object sender, DragEventArgs e)
         {
+            Control control = sender as Control;
+            control.BackColor = Color.LightBlue;
             e.Effect = DragDropEffects.Copy;
         }
 
@@ -262,7 +280,7 @@ namespace DevConsole
                     newActivityButton.FlatAppearance.BorderSize = 0;
                     newActivityButton.FlatStyle = FlatStyle.Flat;
                     height = newActivityButton.Height;
-                    newActivityButton.Size = new Size((taskLayout.Width / 3) - 1, height);
+                    newActivityButton.Size = new Size((taskLayout.Width / 2) - 1, height);
                     newActivityButton.Margin = new Padding(0);
                     newActivityButton.Padding = new Padding(0);
                     newActivityButton.ForeColor = Color.Blue;
@@ -276,7 +294,7 @@ namespace DevConsole
                     editTaskButton.FlatAppearance.BorderSize = 0;
                     editTaskButton.FlatStyle = FlatStyle.Flat;
                     height = editTaskButton.Height;
-                    editTaskButton.Size = new Size((taskLayout.Width / 3) - 1, height);
+                    editTaskButton.Size = new Size((taskLayout.Width / 2) - 1, height);
                     editTaskButton.Margin = new Padding(0);
                     editTaskButton.Padding = new Padding(0);
                     editTaskButton.ForeColor = Color.Green;
@@ -284,20 +302,6 @@ namespace DevConsole
                     editTaskButton.Click += EditTask;
 
                     taskLayout.Controls.Add(editTaskButton);
-
-                    Button deleteButton = new Button();
-                    deleteButton.Text = "Delete Task";
-                    deleteButton.FlatAppearance.BorderSize = 0;
-                    deleteButton.FlatStyle = FlatStyle.Flat;
-                    height = deleteButton.Height;
-                    deleteButton.Size = new Size((taskLayout.Width / 3) - 1, height);
-                    deleteButton.Margin = new Padding(0);
-                    deleteButton.Padding = new Padding(0);
-                    deleteButton.ForeColor = Color.Crimson;
-                    deleteButton.Name = task.ID.ToString();
-                    deleteButton.Click += DeleteTask;
-
-                    taskLayout.Controls.Add(deleteButton);
 
                     
 

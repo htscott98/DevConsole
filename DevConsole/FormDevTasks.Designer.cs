@@ -34,6 +34,7 @@
             this.FlowLayoutPanelMain = new System.Windows.Forms.FlowLayoutPanel();
             this.ButtonFilters = new System.Windows.Forms.Button();
             this.ButtonClearFilters = new System.Windows.Forms.Button();
+            this.Garbage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ButtonNew
@@ -67,7 +68,7 @@
             this.FlowLayoutPanelMain.BackColor = System.Drawing.SystemColors.Control;
             this.FlowLayoutPanelMain.Location = new System.Drawing.Point(12, 53);
             this.FlowLayoutPanelMain.Name = "FlowLayoutPanelMain";
-            this.FlowLayoutPanelMain.Size = new System.Drawing.Size(760, 396);
+            this.FlowLayoutPanelMain.Size = new System.Drawing.Size(760, 282);
             this.FlowLayoutPanelMain.TabIndex = 2;
             this.FlowLayoutPanelMain.WrapContents = false;
             // 
@@ -95,11 +96,27 @@
             this.ButtonClearFilters.UseVisualStyleBackColor = false;
             this.ButtonClearFilters.Click += new System.EventHandler(this.ButtonClearFilters_Click);
             // 
+            // Garbage
+            // 
+            this.Garbage.AllowDrop = true;
+            this.Garbage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Garbage.Image = ((System.Drawing.Image)(resources.GetObject("Garbage.Image")));
+            this.Garbage.Location = new System.Drawing.Point(12, 338);
+            this.Garbage.Name = "Garbage";
+            this.Garbage.Size = new System.Drawing.Size(760, 114);
+            this.Garbage.TabIndex = 8;
+            this.Garbage.DragDrop += new System.Windows.Forms.DragEventHandler(this.LayoutPanel_DragDrop);
+            this.Garbage.DragEnter += new System.Windows.Forms.DragEventHandler(this.LayoutPanel_DragEnter);
+            this.Garbage.DragOver += new System.Windows.Forms.DragEventHandler(this.LayoutPanel_DragOver);
+            this.Garbage.DragLeave += new System.EventHandler(this.LayoutPanel_DragLeave);
+            // 
             // FormDevTasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.Garbage);
             this.Controls.Add(this.ButtonClearFilters);
             this.Controls.Add(this.ButtonFilters);
             this.Controls.Add(this.FlowLayoutPanelMain);
@@ -124,5 +141,6 @@
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelMain;
         private System.Windows.Forms.Button ButtonFilters;
         private System.Windows.Forms.Button ButtonClearFilters;
+        private System.Windows.Forms.Label Garbage;
     }
 }
