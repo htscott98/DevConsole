@@ -210,7 +210,7 @@ namespace DevConsole
             string id = "\"" + DataGridViewMainLogs.SelectedRows[0].Cells["ID"].Value.ToString() + "\"";
             string logName = DataGridViewMainLogs.SelectedRows[0].Cells["LogName"].Value.ToString();
 
-            Clipboard.SetText("GlobalCode.InsertMasterLogging((" + id + ",\"REPLACE_ME\")); /*" + logName + "*/");
+            Clipboard.SetText("MasterCode.Log.InsertMasterLogging((" + id + ",\"REPLACE_ME\")); /*" + logName + "*/");
 
             GlobalCode.ShowMSGBox("Log has been generated and copied to clipboard");
 
