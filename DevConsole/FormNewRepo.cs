@@ -108,7 +108,7 @@ namespace DevConsole
         {
             try
             {
-                string DevRootDir = @"C:\Users\htsco\Desktop\Development\Dev\DevTest\";
+                string DevRootDir = @"C:\Users\htsco\Desktop\Development\Dev\";
 
                 if (Directory.Exists(DevRootDir + TextBoxName.Text))
                 {
