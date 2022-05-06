@@ -120,10 +120,9 @@ namespace DevConsole
                 else
                 {
                     var oProcess = new Process();
-                    oProcess.StartInfo.FileName = "git-cmd.exe";
+                    oProcess.StartInfo.FileName = @"C:\Program Files\Git\git-cmd.exe";
                     oProcess.StartInfo.UseShellExecute = false;
-                    oProcess.StartInfo.Arguments = "git clone " + TextBoxLocation.Text;
-                    oProcess.StartInfo.WorkingDirectory = DevRootDir + TextBoxName.Text;
+                    oProcess.StartInfo.Arguments = "git clone " + TextBoxLocation.Text + " " + DevRootDir + TextBoxName.Text;
                     oProcess.StartInfo.CreateNoWindow = false;
                     oProcess.Start();
                     oProcess.WaitForExit();
