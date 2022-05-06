@@ -354,6 +354,7 @@ namespace DevConsole
                 {
                     if (devTask.InsertRecord() == true)
                     {
+                        DevTaskActivity devTaskActivity = new DevTaskActivity();
                         GlobalCode.ShowMSGBox("Successfully added new task");
                         taskTask = null;
                         FormNewTasks_Shown(null, null);

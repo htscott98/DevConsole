@@ -44,6 +44,11 @@ namespace DevConsole
                     layoutPanel.HorizontalScroll.Enabled = false;
                     layoutPanel.HorizontalScroll.Maximum = 0;
                     layoutPanel.AutoScroll = true;
+                    layoutPanel.AllowDrop = true;
+                    layoutPanel.Name = list.ID.ToString();
+                    layoutPanel.DragOver += LayoutPanel_DragOver;
+                    layoutPanel.DragEnter += LayoutPanel_DragEnter;
+                    layoutPanel.DragDrop += LayoutPanel_DragDrop;
 
                     FlowLayoutPanelMain.Controls.Add(layoutPanel);
 
@@ -58,6 +63,45 @@ namespace DevConsole
             {
                 GlobalCode.ExceptionHandler(ex);
             }
+        }
+
+        private void LayoutPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                MyWrapper wrapper = (MyWrapper)e.Data.GetData(typeof(MyWrapper));
+
+                Control list = sender as Control;
+                string listID = list.Name;
+
+                string taskID = wrapper.Control.Name;
+
+                DevTaskTasks devTaskTasks = new DevTaskTasks();
+                devTaskTasks.ID = Convert.ToInt32(taskID);
+                devTaskTasks.TaskListID = Convert.ToInt32(listID);
+
+                if (devTaskTasks.UpdateTaskList() == true)
+                {
+                    FormDevTasks_Shown(null, null);
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                GlobalCode.ExceptionHandler(ex);
+            }
+        }
+
+        private void LayoutPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void LayoutPanel_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
         }
 
         private void PopulateTasks(string listID, string listName, FlowLayoutPanel layoutPanel)
@@ -106,7 +150,7 @@ namespace DevConsole
                     taskLayout.BackColor = SystemColors.ControlLight;
                     taskLayout.BorderStyle = BorderStyle.FixedSingle;
                     taskLayout.Name = task.ID.ToString();
-                    taskLayout.DoubleClick += EditTask;
+                    taskLayout.MouseDown += TaskLayout_MouseDown;
                     height = taskLayout.Height;
                     taskLayout.MinimumSize = new Size(Convert.ToInt32(Math.Round(layoutPanel.Width * .90, 0, MidpointRounding.ToZero)), height);
                     taskLayout.MaximumSize = new Size(Convert.ToInt32(Math.Round(layoutPanel.Width * .90, 0, MidpointRounding.ToZero)), 0);
@@ -123,9 +167,9 @@ namespace DevConsole
                     labelLayout.Padding = new Padding(0);
                     labelLayout.BorderStyle = BorderStyle.None;
                     labelLayout.Name = task.ID.ToString();
-                    labelLayout.DoubleClick += EditTask;
                     height = labelLayout.Height;
                     labelLayout.Size = new Size(taskLayout.Width, height);
+                    labelLayout.MouseDown += ParentDrag;
 
                     taskLayout.Controls.Add(labelLayout);
 
@@ -208,8 +252,8 @@ namespace DevConsole
                     taskheaderLabel.Padding = new Padding(0);
                     taskheaderLabel.Margin = new Padding(0, 10, 0, 10);
                     taskheaderLabel.Name = task.ID.ToString();
-                    taskheaderLabel.DoubleClick += EditTask;
                     taskheaderLabel.TextAlign = ContentAlignment.MiddleLeft;
+                    taskheaderLabel.MouseDown += ParentDrag;
 
                     taskLayout.Controls.Add(taskheaderLabel);
 
@@ -227,19 +271,19 @@ namespace DevConsole
 
                     taskLayout.Controls.Add(newActivityButton);
 
-                    Button moveListButton = new Button();
-                    moveListButton.Text = "Move Lists";
-                    moveListButton.FlatAppearance.BorderSize = 0;
-                    moveListButton.FlatStyle = FlatStyle.Flat;
-                    height = moveListButton.Height;
-                    moveListButton.Size = new Size((taskLayout.Width / 3) - 1, height);
-                    moveListButton.Margin = new Padding(0);
-                    moveListButton.Padding = new Padding(0);
-                    moveListButton.ForeColor = Color.DarkGreen;
-                    moveListButton.Name = task.ID.ToString();
-                    moveListButton.Click += MoveList;
+                    Button editTaskButton = new Button();
+                    editTaskButton.Text = "Edit Task";
+                    editTaskButton.FlatAppearance.BorderSize = 0;
+                    editTaskButton.FlatStyle = FlatStyle.Flat;
+                    height = editTaskButton.Height;
+                    editTaskButton.Size = new Size((taskLayout.Width / 3) - 1, height);
+                    editTaskButton.Margin = new Padding(0);
+                    editTaskButton.Padding = new Padding(0);
+                    editTaskButton.ForeColor = Color.Green;
+                    editTaskButton.Name = task.ID.ToString();
+                    editTaskButton.Click += EditTask;
 
-                    taskLayout.Controls.Add(moveListButton);
+                    taskLayout.Controls.Add(editTaskButton);
 
                     Button deleteButton = new Button();
                     deleteButton.Text = "Delete Task";
@@ -267,32 +311,18 @@ namespace DevConsole
             }
         }
 
-        private void MoveList(object sender, EventArgs e)
+        private void ParentDrag(object sender, MouseEventArgs e)
         {
-            try
-            {
-                Control control = (Control)sender;
+            Control control = sender as Control;
 
-                if (control == null)
-                {
-                    return;
-                }
+            control.DoDragDrop(new MyWrapper(control.Parent), DragDropEffects.Copy);
+        }
 
-                DevTaskTasks devTask = new DevTaskTasks();
-                devTask = DevTaskTasks.GetObjectByID(control.Name);
+        private void TaskLayout_MouseDown(object sender, MouseEventArgs e)
+        {
+            Control control = sender as Control;
 
-                FormMoveTaskLists move = new FormMoveTaskLists();
-                move.task = devTask;
-                move.ShowDialog();
-
-                FormDevTasks_Shown(null, null);
-
-
-            }
-            catch (Exception ex)
-            {
-                GlobalCode.ExceptionHandler(ex);
-            }
+            control.DoDragDrop(new MyWrapper(control), DragDropEffects.Copy);
         }
 
         private void AddActivity(object sender, EventArgs e)
@@ -458,5 +488,25 @@ namespace DevConsole
             FormDevTasks_Shown(null, null);
 
         }
+
+        internal partial class MyWrapper
+        {
+            private Control _control;
+
+            public MyWrapper(Control control)
+            {
+                _control = control;
+            }
+
+            public Control Control
+            {
+                get
+                {
+                    return _control;
+                }
+            }
+        }
+
+
     }
 }
