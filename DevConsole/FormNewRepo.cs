@@ -108,7 +108,7 @@ namespace DevConsole
         {
             try
             {
-                string DevRootDir = @"C:\Users\htsco\Desktop\Development\Dev\";
+                string DevRootDir = @"C:\Users\htsco\Desktop\Development\Dev\DevTest\";
 
                 if (Directory.Exists(DevRootDir + TextBoxName.Text))
                 {
@@ -119,18 +119,34 @@ namespace DevConsole
                 }
                 else
                 {
-                    var oProcess = new Process();
-                    oProcess.StartInfo.FileName = @"C:\Program Files\Git\git-cmd.exe";
-                    oProcess.StartInfo.UseShellExecute = false;
-                    oProcess.StartInfo.Arguments = "git clone " + TextBoxLocation.Text + " " + DevRootDir + TextBoxName.Text;
-                    oProcess.StartInfo.CreateNoWindow = false;
-                    oProcess.Start();
-                    oProcess.WaitForExit();
-                    oProcess.Close();
+
+                    Process p = new Process();
+                    ProcessStartInfo info = new ProcessStartInfo();
+                    info.FileName = "cmd.exe";
+                    info.RedirectStandardInput = true;
+                    info.UseShellExecute = false;
+                    info.CreateNoWindow = true;
+                    p.StartInfo = info;
+                    p.Start();
+
+
+                    using (StreamWriter sw = p.StandardInput)
+                    {
+                        if (sw.BaseStream.CanWrite)
+                        {
+                            sw.WriteLine("git clone " + TextBoxLocation.Text + " " + DevRootDir + TextBoxName.Text);
+
+                        }
+                    }
+
+                    p.WaitForExit();
+                    p.Close();
+
                     if (GlobalCode.ShowMSGBox("Open " + TextBoxName.Text + "?", MessageBoxIcon.Question, MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         OpenSolution(DevRootDir + TextBoxName.Text);
                     }
+
                 }
 
             }
