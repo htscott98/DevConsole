@@ -468,11 +468,6 @@ namespace DevConsole
                     FormDevTasks_Shown(null, null);
                 }
 
-                if (GlobalCode.oldList == GlobalCode.newList)
-                {
-                    return;
-                }
-
                 if (string.IsNullOrEmpty(GlobalCode.oldList) == false) {
 
                     Control[] oldListControls = FlowLayoutPanelMain.Controls.Find(GlobalCode.oldList, false);
