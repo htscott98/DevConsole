@@ -350,7 +350,7 @@ namespace DevConsole
         private void ParentDrag(object sender, MouseEventArgs e)
         {
             Control control = sender as Control;
-
+            GlobalCode.oldList = control.Parent.Parent.Name;
             control.DoDragDrop(new MyWrapper(control.Parent), DragDropEffects.Copy);
         }
 
