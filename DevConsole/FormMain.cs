@@ -148,13 +148,7 @@ namespace DevConsole
 
         #region "ErrorsTab"
 
-
-        private void DataGridViewErrors_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            DataGridViewErrors.ClearSelection();
-        }
-
-        private void DataGridViewErrors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewErrors_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -184,6 +178,11 @@ namespace DevConsole
                 GlobalCode.ExceptionHandler(ex);
                 FillErrorsTable();
             }
+        }
+
+        private void DataGridViewErrors_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DataGridViewErrors.ClearSelection();
         }
 
         public void FillErrorsTable()
@@ -1081,6 +1080,39 @@ namespace DevConsole
 
         #region "AccessTab"
 
+        private void DataGridViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                newUser = false;
+                EnableAccessControls();
+                int id = Convert.ToInt32(DataGridViewUsers.SelectedRows[0].Cells["ID"].Value);
+                modifiedUser = UserAccess.GetObjectByID(id);
+                if (modifiedUser != null)
+                {
+                    TextBoxFirstName.Text = modifiedUser.FirstName;
+                    TextBoxLastName.Text = modifiedUser.LastName;
+                    TextBoxDOB.Text = modifiedUser.DOB;
+                    TextBoxPrimaryEmail.Text = modifiedUser.PrimaryEmail;
+                    TextBoxSecondaryEmail.Text = modifiedUser.SecondaryEmail;
+                    TextBoxPrimaryPhone.Text = modifiedUser.PrimaryPhone;
+                    TextBoxSecondaryPhone.Text = modifiedUser.SecondaryPhone;
+                    TextBoxAddress.Text = modifiedUser.Address;
+                    CheckBoxRepos.Checked = modifiedUser.Repositories;
+                    CheckBoxErrorLogs.Checked = modifiedUser.ErrorLogs;
+                    CheckBoxCodeBuilder.Checked = modifiedUser.CodeBuilder;
+                    CheckBoxAccess.Checked = modifiedUser.Access;
+                    TextBoxUsername.Text = modifiedUser.Username;
+                    TextBoxPassword.Text = modifiedUser.Password;
+                    TextBoxVerifyPassword.Text = modifiedUser.Password;
+                }
+            }
+            catch (Exception ex)
+            {
+                GlobalCode.ExceptionHandler(ex);
+            }
+        }
+
         private void DataGridViewUsers_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             DataGridViewUsers.ClearSelection();
@@ -1186,39 +1218,6 @@ namespace DevConsole
         {
             newUser = true;
             EnableAccessControls();
-        }
-
-        private void DataGridViewUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                newUser = false;
-                EnableAccessControls();
-                int id = Convert.ToInt32(DataGridViewUsers.SelectedRows[0].Cells["ID"].Value);
-                modifiedUser = UserAccess.GetObjectByID(id);
-                if (modifiedUser != null)
-                {
-                    TextBoxFirstName.Text = modifiedUser.FirstName;
-                    TextBoxLastName.Text = modifiedUser.LastName;
-                    TextBoxDOB.Text = modifiedUser.DOB;
-                    TextBoxPrimaryEmail.Text = modifiedUser.PrimaryEmail;
-                    TextBoxSecondaryEmail.Text = modifiedUser.SecondaryEmail;
-                    TextBoxPrimaryPhone.Text = modifiedUser.PrimaryPhone;
-                    TextBoxSecondaryPhone.Text = modifiedUser.SecondaryPhone;
-                    TextBoxAddress.Text = modifiedUser.Address;
-                    CheckBoxRepos.Checked = modifiedUser.Repositories;
-                    CheckBoxErrorLogs.Checked = modifiedUser.ErrorLogs;
-                    CheckBoxCodeBuilder.Checked = modifiedUser.CodeBuilder;
-                    CheckBoxAccess.Checked = modifiedUser.Access;
-                    TextBoxUsername.Text = modifiedUser.Username;
-                    TextBoxPassword.Text = modifiedUser.Password;
-                    TextBoxVerifyPassword.Text = modifiedUser.Password;
-                }
-            }
-            catch (Exception ex)
-            {
-                GlobalCode.ExceptionHandler(ex);
-            }
         }
 
         public void EnableAccessControls()
@@ -1361,8 +1360,10 @@ namespace DevConsole
 
 
 
+
+
         #endregion
 
-
+        
     }
 }

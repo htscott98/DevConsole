@@ -51,6 +51,7 @@ namespace DevConsole
             this.DataGridViewErrors = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabRepositories = new System.Windows.Forms.TabPage();
+            this.ButtonBrowseCode = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.ComboBoxProjectStatus = new System.Windows.Forms.ComboBox();
             this.ButtonNewProject = new System.Windows.Forms.Button();
@@ -108,7 +109,6 @@ namespace DevConsole
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ButtonDevTasks = new System.Windows.Forms.Button();
-            this.ButtonBrowseCode = new System.Windows.Forms.Button();
             this.TabErrorLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewErrors)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -300,7 +300,7 @@ namespace DevConsole
             this.DataGridViewErrors.Name = "DataGridViewErrors";
             this.DataGridViewErrors.Size = new System.Drawing.Size(277, 355);
             this.DataGridViewErrors.TabIndex = 0;
-            this.DataGridViewErrors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewErrors_CellDoubleClick);
+            this.DataGridViewErrors.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewErrors_CellClick);
             this.DataGridViewErrors.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewErrors_DataBindingComplete);
             // 
             // tabControl1
@@ -329,6 +329,16 @@ namespace DevConsole
             this.TabRepositories.TabIndex = 2;
             this.TabRepositories.Text = "Repositories";
             this.TabRepositories.UseVisualStyleBackColor = true;
+            // 
+            // ButtonBrowseCode
+            // 
+            this.ButtonBrowseCode.Location = new System.Drawing.Point(468, 367);
+            this.ButtonBrowseCode.Name = "ButtonBrowseCode";
+            this.ButtonBrowseCode.Size = new System.Drawing.Size(136, 35);
+            this.ButtonBrowseCode.TabIndex = 26;
+            this.ButtonBrowseCode.Text = "Browse Code";
+            this.ButtonBrowseCode.UseVisualStyleBackColor = true;
+            this.ButtonBrowseCode.Click += new System.EventHandler(this.ButtonBrowseCode_Click);
             // 
             // label19
             // 
@@ -388,10 +398,10 @@ namespace DevConsole
             this.TabCodeBuilder.Controls.Add(this.label20);
             this.TabCodeBuilder.Controls.Add(this.TextBoxClassName);
             this.TabCodeBuilder.Controls.Add(this.label21);
-            this.TabCodeBuilder.Location = new System.Drawing.Point(4, 24);
+            this.TabCodeBuilder.Location = new System.Drawing.Point(4, 25);
             this.TabCodeBuilder.Name = "TabCodeBuilder";
             this.TabCodeBuilder.Padding = new System.Windows.Forms.Padding(3);
-            this.TabCodeBuilder.Size = new System.Drawing.Size(752, 409);
+            this.TabCodeBuilder.Size = new System.Drawing.Size(752, 408);
             this.TabCodeBuilder.TabIndex = 3;
             this.TabCodeBuilder.Text = "Code Builder";
             this.TabCodeBuilder.UseVisualStyleBackColor = true;
@@ -541,10 +551,10 @@ namespace DevConsole
             this.TabAccess.Controls.Add(this.ButtonNewUser);
             this.TabAccess.Controls.Add(this.ButtonDeleteUser);
             this.TabAccess.Controls.Add(this.DataGridViewUsers);
-            this.TabAccess.Location = new System.Drawing.Point(4, 24);
+            this.TabAccess.Location = new System.Drawing.Point(4, 25);
             this.TabAccess.Name = "TabAccess";
             this.TabAccess.Padding = new System.Windows.Forms.Padding(3);
-            this.TabAccess.Size = new System.Drawing.Size(752, 409);
+            this.TabAccess.Size = new System.Drawing.Size(752, 408);
             this.TabAccess.TabIndex = 1;
             this.TabAccess.Text = "Access";
             this.TabAccess.UseVisualStyleBackColor = true;
@@ -841,7 +851,7 @@ namespace DevConsole
             this.DataGridViewUsers.Name = "DataGridViewUsers";
             this.DataGridViewUsers.Size = new System.Drawing.Size(277, 355);
             this.DataGridViewUsers.TabIndex = 18;
-            this.DataGridViewUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewUsers_CellDoubleClick);
+            this.DataGridViewUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewUsers_CellClick);
             this.DataGridViewUsers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewUsers_DataBindingComplete);
             // 
             // ButtonRefreshData
@@ -893,16 +903,6 @@ namespace DevConsole
             this.ButtonDevTasks.Text = "Dev Tasks";
             this.ButtonDevTasks.UseVisualStyleBackColor = true;
             this.ButtonDevTasks.Click += new System.EventHandler(this.ButtonDevTasks_Click);
-            // 
-            // ButtonBrowseCode
-            // 
-            this.ButtonBrowseCode.Location = new System.Drawing.Point(468, 367);
-            this.ButtonBrowseCode.Name = "ButtonBrowseCode";
-            this.ButtonBrowseCode.Size = new System.Drawing.Size(136, 35);
-            this.ButtonBrowseCode.TabIndex = 26;
-            this.ButtonBrowseCode.Text = "Browse Code";
-            this.ButtonBrowseCode.UseVisualStyleBackColor = true;
-            this.ButtonBrowseCode.Click += new System.EventHandler(this.ButtonBrowseCode_Click);
             // 
             // FormMain
             // 
