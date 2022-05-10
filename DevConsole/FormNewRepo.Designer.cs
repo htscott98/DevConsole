@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TextBoxDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.ButtonLogs = new System.Windows.Forms.Button();
+            this.ButtonEventLogs = new System.Windows.Forms.Button();
             this.ButtonOpen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -150,15 +150,15 @@
             this.label5.TabIndex = 29;
             this.label5.Text = "Description";
             // 
-            // ButtonLogs
+            // ButtonEventLogs
             // 
-            this.ButtonLogs.Location = new System.Drawing.Point(12, 414);
-            this.ButtonLogs.Name = "ButtonLogs";
-            this.ButtonLogs.Size = new System.Drawing.Size(119, 35);
-            this.ButtonLogs.TabIndex = 8;
-            this.ButtonLogs.Text = "Event Logs";
-            this.ButtonLogs.UseVisualStyleBackColor = true;
-            this.ButtonLogs.Click += new System.EventHandler(this.ButtonLogs_Click);
+            this.ButtonEventLogs.Location = new System.Drawing.Point(12, 414);
+            this.ButtonEventLogs.Name = "ButtonEventLogs";
+            this.ButtonEventLogs.Size = new System.Drawing.Size(119, 35);
+            this.ButtonEventLogs.TabIndex = 8;
+            this.ButtonEventLogs.Text = "Event Logs";
+            this.ButtonEventLogs.UseVisualStyleBackColor = true;
+            this.ButtonEventLogs.Click += new System.EventHandler(this.ButtonEventLogs_Click);
             // 
             // ButtonOpen
             // 
@@ -176,7 +176,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 461);
             this.Controls.Add(this.ButtonOpen);
-            this.Controls.Add(this.ButtonLogs);
+            this.Controls.Add(this.ButtonEventLogs);
             this.Controls.Add(this.TextBoxDescription);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TextBoxLocation);
@@ -216,7 +216,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TextBoxDescription;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button ButtonLogs;
+        private System.Windows.Forms.Button ButtonEventLogs;
         private System.Windows.Forms.Button ButtonOpen;
     }
 }

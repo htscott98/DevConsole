@@ -66,7 +66,7 @@ namespace DevConsole.Classes
 
         public override string ToString()
         {
-            return "";
+            return _Name;
         }
 
         #endregion
@@ -102,6 +102,36 @@ namespace DevConsole.Classes
             }
 
             return dt;
+        }
+
+        public static List<Repos> GetListOfObjects()
+        {
+            List<Repos> objList = new List<Repos>();
+            string strSQL = "";
+            try
+            {
+                strSQL = GetSQLSelect() +
+                "FROM DevConsoleRepos ORDER BY Name ASC";
+
+                DataTable dt = MasterCode.Execute.ExecuteSelectReturnDT(MasterCode.Connection.InitPRDConnection(), strSQL);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Repos obj = new Repos(r);
+
+                        if (obj != null)
+                            objList.Add(obj);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GlobalCode.ExceptionHandler(ex);
+            }
+
+            return objList;
         }
 
 

@@ -136,6 +136,13 @@ namespace DevConsole
             FillReposTable(); //adding data to repos DG
         }
 
+        private void ButtonBrowseCode_Click(object sender, EventArgs e)
+        {
+            FormCodeSearch f = new FormCodeSearch();
+            f.ShowDialog();
+            ButtonRefreshData_Click(null, null);
+        }
+
 
         #endregion
 
@@ -1353,8 +1360,9 @@ namespace DevConsole
 
 
 
+
         #endregion
 
-        
+
     }
 }

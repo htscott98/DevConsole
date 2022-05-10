@@ -30,7 +30,7 @@ namespace DevConsole
                 if (newRepo == true)
                 {
                     ButtonOpen.Visible = false;
-                    ButtonLogs.Visible = false;
+                    ButtonEventLogs.Visible = false;
                 }
                 else
                 {
@@ -164,7 +164,7 @@ namespace DevConsole
         }
 
 
-        private void ButtonLogs_Click(object sender, EventArgs e)
+        private void ButtonEventLogs_Click(object sender, EventArgs e)
         {
             FormEventLogs f = new FormEventLogs();
             f.DevConsoleReposID = repository.ID;

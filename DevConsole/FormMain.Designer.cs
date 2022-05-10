@@ -56,6 +56,7 @@ namespace DevConsole
             this.ButtonNewProject = new System.Windows.Forms.Button();
             this.DataGridViewRepos = new System.Windows.Forms.DataGridView();
             this.TabCodeBuilder = new System.Windows.Forms.TabPage();
+            this.ComboBoxTableName = new System.Windows.Forms.ComboBox();
             this.ComboBoxDatabase = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.ButtonResetBoxes = new System.Windows.Forms.Button();
@@ -107,7 +108,7 @@ namespace DevConsole
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ButtonDevTasks = new System.Windows.Forms.Button();
-            this.ComboBoxTableName = new System.Windows.Forms.ComboBox();
+            this.ButtonBrowseCode = new System.Windows.Forms.Button();
             this.TabErrorLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewErrors)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -316,14 +317,15 @@ namespace DevConsole
             // 
             // TabRepositories
             // 
+            this.TabRepositories.Controls.Add(this.ButtonBrowseCode);
             this.TabRepositories.Controls.Add(this.label19);
             this.TabRepositories.Controls.Add(this.ComboBoxProjectStatus);
             this.TabRepositories.Controls.Add(this.ButtonNewProject);
             this.TabRepositories.Controls.Add(this.DataGridViewRepos);
-            this.TabRepositories.Location = new System.Drawing.Point(4, 24);
+            this.TabRepositories.Location = new System.Drawing.Point(4, 25);
             this.TabRepositories.Name = "TabRepositories";
             this.TabRepositories.Padding = new System.Windows.Forms.Padding(3);
-            this.TabRepositories.Size = new System.Drawing.Size(752, 409);
+            this.TabRepositories.Size = new System.Drawing.Size(752, 408);
             this.TabRepositories.TabIndex = 2;
             this.TabRepositories.Text = "Repositories";
             this.TabRepositories.UseVisualStyleBackColor = true;
@@ -386,13 +388,21 @@ namespace DevConsole
             this.TabCodeBuilder.Controls.Add(this.label20);
             this.TabCodeBuilder.Controls.Add(this.TextBoxClassName);
             this.TabCodeBuilder.Controls.Add(this.label21);
-            this.TabCodeBuilder.Location = new System.Drawing.Point(4, 25);
+            this.TabCodeBuilder.Location = new System.Drawing.Point(4, 24);
             this.TabCodeBuilder.Name = "TabCodeBuilder";
             this.TabCodeBuilder.Padding = new System.Windows.Forms.Padding(3);
-            this.TabCodeBuilder.Size = new System.Drawing.Size(752, 408);
+            this.TabCodeBuilder.Size = new System.Drawing.Size(752, 409);
             this.TabCodeBuilder.TabIndex = 3;
             this.TabCodeBuilder.Text = "Code Builder";
             this.TabCodeBuilder.UseVisualStyleBackColor = true;
+            // 
+            // ComboBoxTableName
+            // 
+            this.ComboBoxTableName.FormattingEnabled = true;
+            this.ComboBoxTableName.Location = new System.Drawing.Point(245, 20);
+            this.ComboBoxTableName.Name = "ComboBoxTableName";
+            this.ComboBoxTableName.Size = new System.Drawing.Size(219, 24);
+            this.ComboBoxTableName.TabIndex = 27;
             // 
             // ComboBoxDatabase
             // 
@@ -884,13 +894,15 @@ namespace DevConsole
             this.ButtonDevTasks.UseVisualStyleBackColor = true;
             this.ButtonDevTasks.Click += new System.EventHandler(this.ButtonDevTasks_Click);
             // 
-            // ComboBoxTableName
+            // ButtonBrowseCode
             // 
-            this.ComboBoxTableName.FormattingEnabled = true;
-            this.ComboBoxTableName.Location = new System.Drawing.Point(245, 20);
-            this.ComboBoxTableName.Name = "ComboBoxTableName";
-            this.ComboBoxTableName.Size = new System.Drawing.Size(219, 24);
-            this.ComboBoxTableName.TabIndex = 27;
+            this.ButtonBrowseCode.Location = new System.Drawing.Point(468, 367);
+            this.ButtonBrowseCode.Name = "ButtonBrowseCode";
+            this.ButtonBrowseCode.Size = new System.Drawing.Size(136, 35);
+            this.ButtonBrowseCode.TabIndex = 26;
+            this.ButtonBrowseCode.Text = "Browse Code";
+            this.ButtonBrowseCode.UseVisualStyleBackColor = true;
+            this.ButtonBrowseCode.Click += new System.EventHandler(this.ButtonBrowseCode_Click);
             // 
             // FormMain
             // 
@@ -1009,6 +1021,7 @@ namespace DevConsole
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox ComboBoxDatabase;
         private System.Windows.Forms.ComboBox ComboBoxTableName;
+        private System.Windows.Forms.Button ButtonBrowseCode;
     }
 }
 
