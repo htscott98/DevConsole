@@ -13,6 +13,7 @@ namespace DevConsole
 {
     public partial class FormDevTasks : Form
     {
+
         public FormDevTasks()
         {
             InitializeComponent();
@@ -382,14 +383,14 @@ namespace DevConsole
         {
             Control control = sender as Control;
             GlobalCode.oldList = control.Parent.Parent.Name;
-            control.DoDragDrop(new MyWrapper(control.Parent), DragDropEffects.Copy);
+            control.DoDragDrop(new MyWrapper(control.Parent), DragDropEffects.All);
         }
 
         private void TaskLayout_MouseDown(object sender, MouseEventArgs e)
         {
             Control control = sender as Control;
             GlobalCode.oldList = control.Parent.Name;
-            control.DoDragDrop(new MyWrapper(control), DragDropEffects.Copy);
+            control.DoDragDrop(new MyWrapper(control), DragDropEffects.All);
         }
 
         private void AddActivity(object sender, EventArgs e)
@@ -497,6 +498,11 @@ namespace DevConsole
                 if (GlobalCode.oldList == null && GlobalCode.newList == null)
                 {
                     FormDevTasks_Shown(null, null);
+                }
+
+                if (GlobalCode.oldList == GlobalCode.newList)
+                {
+                    GlobalCode.oldList = null;
                 }
 
                 if (string.IsNullOrEmpty(GlobalCode.oldList) == false) {

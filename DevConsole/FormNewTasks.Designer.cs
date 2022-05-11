@@ -121,7 +121,7 @@
             // 
             this.LinkNewTaskActivity.ActiveLinkColor = System.Drawing.Color.Blue;
             this.LinkNewTaskActivity.LinkColor = System.Drawing.Color.Blue;
-            this.LinkNewTaskActivity.Location = new System.Drawing.Point(300, 206);
+            this.LinkNewTaskActivity.Location = new System.Drawing.Point(300, 167);
             this.LinkNewTaskActivity.Name = "LinkNewTaskActivity";
             this.LinkNewTaskActivity.Size = new System.Drawing.Size(446, 22);
             this.LinkNewTaskActivity.TabIndex = 27;
@@ -135,7 +135,7 @@
             this.FlowLayoutPanelTaskActivity.AutoScroll = true;
             this.FlowLayoutPanelTaskActivity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FlowLayoutPanelTaskActivity.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlowLayoutPanelTaskActivity.Location = new System.Drawing.Point(300, 231);
+            this.FlowLayoutPanelTaskActivity.Location = new System.Drawing.Point(300, 192);
             this.FlowLayoutPanelTaskActivity.Name = "FlowLayoutPanelTaskActivity";
             this.FlowLayoutPanelTaskActivity.Size = new System.Drawing.Size(446, 130);
             this.FlowLayoutPanelTaskActivity.TabIndex = 26;
@@ -145,7 +145,7 @@
             this.TextBoxTaskDescription.Location = new System.Drawing.Point(300, 116);
             this.TextBoxTaskDescription.Multiline = true;
             this.TextBoxTaskDescription.Name = "TextBoxTaskDescription";
-            this.TextBoxTaskDescription.Size = new System.Drawing.Size(446, 87);
+            this.TextBoxTaskDescription.Size = new System.Drawing.Size(446, 48);
             this.TextBoxTaskDescription.TabIndex = 18;
             // 
             // label10
@@ -216,7 +216,7 @@
             // CheckBoxTaskEnabled
             // 
             this.CheckBoxTaskEnabled.AutoSize = true;
-            this.CheckBoxTaskEnabled.Location = new System.Drawing.Point(317, 375);
+            this.CheckBoxTaskEnabled.Location = new System.Drawing.Point(300, 328);
             this.CheckBoxTaskEnabled.Name = "CheckBoxTaskEnabled";
             this.CheckBoxTaskEnabled.Size = new System.Drawing.Size(77, 20);
             this.CheckBoxTaskEnabled.TabIndex = 17;

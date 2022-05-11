@@ -31,6 +31,41 @@ namespace DevConsole
                 }
 
                 LabelTaskName.Text = task.Name;
+                PopulateActivityForTask();
+
+            }
+            catch (Exception ex)
+            {
+                GlobalCode.ExceptionHandler(ex);
+            }
+        }
+
+        private void PopulateActivityForTask()
+        {
+            try
+            {
+                List<DevTaskActivity> devTaskActivity = DevTaskActivity.GetListOfObjectsByTaskID(task.ID.ToString());
+
+                foreach (DevTaskActivity activity in devTaskActivity)
+                {
+                    Label dateLabel = new Label();
+                    dateLabel.Margin = new Padding(0);
+                    dateLabel.Padding = new Padding(0);
+                    dateLabel.Width = Convert.ToInt32(Math.Round(FlowLayoutPanelTaskActivity.Width * .90, 0, MidpointRounding.AwayFromZero));
+                    dateLabel.Text = activity.Timestamp.ToString();
+                    dateLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+
+                    FlowLayoutPanelTaskActivity.Controls.Add(dateLabel);
+
+                    Label activityLabel = new Label();
+                    activityLabel.Margin = new Padding(0);
+                    activityLabel.Padding = new Padding(0);
+                    activityLabel.Width = Convert.ToInt32(Math.Round(FlowLayoutPanelTaskActivity.Width * .90, 0, MidpointRounding.AwayFromZero));
+                    activityLabel.Text = activity.Activity;
+
+                    FlowLayoutPanelTaskActivity.Controls.Add(activityLabel);
+
+                }
 
 
             }
