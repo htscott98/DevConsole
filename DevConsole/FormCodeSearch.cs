@@ -48,6 +48,8 @@ namespace DevConsole
         {
 
             TextBoxCode.Text = "";
+            TextBoxFind.Text = "";
+            LabelListCount.Text = "";
             ListBoxForms.Items.Clear();
 
             if (ComboBoxSoftware.Text == "")
@@ -73,6 +75,8 @@ namespace DevConsole
 
         private void ListBoxForms_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TextBoxFind.Text = "";
+            LabelListCount.Text = "";
             RepoCode repo = new RepoCode();
             repo = (RepoCode)ListBoxForms.SelectedItem;
 
