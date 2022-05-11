@@ -209,7 +209,6 @@ namespace DevConsole
             DevTaskLists devTaskLists = new DevTaskLists();
             devTaskLists = DevTaskLists.GetObjectByID(taskTask.TaskListID.ToString());
             ComboBoxTaskList.Text = devTaskLists.Name;
-            TextBoxTaskDisplayOrder.Text = taskTask.DisplayOrder;
             CheckBoxTaskEnabled.Checked = taskTask.Enabled;
             TextBoxTaskDescription.Text = taskTask.Description;
             PopulateLabelsForTask();
@@ -330,7 +329,6 @@ namespace DevConsole
 
 
                 devTask.Name = TextBoxTaskName.Text;
-                devTask.DisplayOrder = TextBoxTaskDisplayOrder.Text;
                 DevTaskLists devTaskLists = new DevTaskLists();
                 devTaskLists = (DevTaskLists)ComboBoxTaskList.SelectedItem;
                 devTask.TaskListID = devTaskLists.ID;
@@ -419,8 +417,6 @@ namespace DevConsole
             FlowLayoutPanelTaskLabels.Controls.Clear();
             TextBoxTaskName.Enabled = false;
             TextBoxTaskName.Text = "";
-            TextBoxTaskDisplayOrder.Enabled = false;
-            TextBoxTaskDisplayOrder.Text = "";
             TextBoxTaskDescription.Text = "";
             TextBoxTaskDescription.Enabled = false;
             ComboBoxTaskList.Enabled = false;
@@ -438,7 +434,6 @@ namespace DevConsole
         {
             FlowLayoutPanelTaskLabels.Enabled = true;
             TextBoxTaskName.Enabled = true;
-            TextBoxTaskDisplayOrder.Enabled = true;
             TextBoxTaskDescription.Enabled = true;
             ComboBoxTaskList.Enabled = true;
             CheckBoxTaskEnabled.Checked = true;

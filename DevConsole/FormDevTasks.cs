@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,6 +117,34 @@ namespace DevConsole
                 }
                 else
                 {
+
+                    list.Controls.Add(wrapper.Control);
+
+                    Point p = list.PointToClient(new Point(e.X, e.Y));
+                    var item = list.GetChildAtPoint(p);
+                    var index = list.Controls.GetChildIndex(item, false);
+
+                    if (index <= 0)
+                    {
+                        index = 1;
+                    }
+
+                    list.Controls.SetChildIndex(wrapper.Control, index);
+
+                    foreach (Control control in list.Controls)
+                    {
+                        if (list.Controls.IndexOf(control) == 0)
+                        {
+                            continue;
+                        }
+
+                        DevTaskTasks taskPosition = new DevTaskTasks();
+                        taskPosition.ID = Convert.ToInt32(control.Name);
+                        taskPosition.DisplayOrder = list.Controls.IndexOf(control).ToString();
+                        taskPosition.UpdateDisplayOrder();
+                    }
+
+
                     string taskID = wrapper.Control.Name;
 
                     DevTaskTasks devTaskTasks = new DevTaskTasks();
@@ -125,8 +154,10 @@ namespace DevConsole
                     if (devTaskTasks.UpdateTaskList() == true)
                     {
                         GlobalCode.newList = listID;
+
                         RefreshOldAndNewList();
                     }
+
                 }
 
 
@@ -335,7 +366,7 @@ namespace DevConsole
 
                     taskLayout.Controls.Add(editTaskButton);
 
-                    
+
 
                 }
 

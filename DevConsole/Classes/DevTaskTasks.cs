@@ -214,7 +214,7 @@ namespace DevConsole
                 Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
 
                 keyValuePairs.Add("@Name", _Name);
-                keyValuePairs.Add("@DisplayOrder", _DisplayOrder);
+                keyValuePairs.Add("@DisplayOrder", "0");
                 keyValuePairs.Add("@TaskListID", _TaskListID.ToString());
                 keyValuePairs.Add("@Description", _Description);
                 keyValuePairs.Add("@Enabled", _Enabled.ToString());
@@ -279,6 +279,33 @@ namespace DevConsole
                 keyValuePairs.Add("@TaskListID", _TaskListID.ToString());
                 strSQL = "UPDATE DevConsoleDevTaskTasks " +
                 "SET TaskListID=@TaskListID " +
+                "WHERE ID = @ID ";
+
+                b = MasterCode.Execute.ExecuteStatementReturnBool(MasterCode.Connection.InitPRDConnection(), strSQL, keyValuePairs);
+
+            }
+            catch (Exception ex)
+            {
+                GlobalCode.ExceptionHandler(ex);
+
+                b = false;
+            }
+
+            return b;
+        }
+
+        public bool UpdateDisplayOrder()
+        {
+            string strSQL = "";
+            bool b = false;
+            try
+            {
+                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+
+                keyValuePairs.Add("@ID", _ID.ToString());
+                keyValuePairs.Add("@DisplayOrder", _DisplayOrder);
+                strSQL = "UPDATE DevConsoleDevTaskTasks " +
+                "SET DisplayOrder=@DisplayOrder " +
                 "WHERE ID = @ID ";
 
                 b = MasterCode.Execute.ExecuteStatementReturnBool(MasterCode.Connection.InitPRDConnection(), strSQL, keyValuePairs);

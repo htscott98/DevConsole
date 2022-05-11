@@ -42,8 +42,6 @@
             this.ButtonCancelTask = new System.Windows.Forms.Button();
             this.ButtonSaveTask = new System.Windows.Forms.Button();
             this.CheckBoxTaskEnabled = new System.Windows.Forms.CheckBox();
-            this.TextBoxTaskDisplayOrder = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.TextBoxTaskName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.ButtonNewTask = new System.Windows.Forms.Button();
@@ -107,8 +105,6 @@
             this.TabTasks.Controls.Add(this.ButtonCancelTask);
             this.TabTasks.Controls.Add(this.ButtonSaveTask);
             this.TabTasks.Controls.Add(this.CheckBoxTaskEnabled);
-            this.TabTasks.Controls.Add(this.TextBoxTaskDisplayOrder);
-            this.TabTasks.Controls.Add(this.label7);
             this.TabTasks.Controls.Add(this.TextBoxTaskName);
             this.TabTasks.Controls.Add(this.label8);
             this.TabTasks.Controls.Add(this.ButtonNewTask);
@@ -146,16 +142,16 @@
             // 
             // TextBoxTaskDescription
             // 
-            this.TextBoxTaskDescription.Location = new System.Drawing.Point(300, 162);
+            this.TextBoxTaskDescription.Location = new System.Drawing.Point(300, 116);
             this.TextBoxTaskDescription.Multiline = true;
             this.TextBoxTaskDescription.Name = "TextBoxTaskDescription";
-            this.TextBoxTaskDescription.Size = new System.Drawing.Size(446, 41);
+            this.TextBoxTaskDescription.Size = new System.Drawing.Size(446, 87);
             this.TextBoxTaskDescription.TabIndex = 18;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(300, 143);
+            this.label10.Location = new System.Drawing.Point(300, 97);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(75, 16);
             this.label10.TabIndex = 23;
@@ -164,7 +160,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(300, 97);
+            this.label9.Location = new System.Drawing.Point(580, 53);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(27, 16);
             this.label9.TabIndex = 22;
@@ -173,9 +169,9 @@
             // ComboBoxTaskList
             // 
             this.ComboBoxTaskList.FormattingEnabled = true;
-            this.ComboBoxTaskList.Location = new System.Drawing.Point(300, 116);
+            this.ComboBoxTaskList.Location = new System.Drawing.Point(580, 70);
             this.ComboBoxTaskList.Name = "ComboBoxTaskList";
-            this.ComboBoxTaskList.Size = new System.Drawing.Size(274, 24);
+            this.ComboBoxTaskList.Size = new System.Drawing.Size(166, 24);
             this.ComboBoxTaskList.TabIndex = 16;
             // 
             // FlowLayoutPanelTaskLabels
@@ -220,28 +216,12 @@
             // CheckBoxTaskEnabled
             // 
             this.CheckBoxTaskEnabled.AutoSize = true;
-            this.CheckBoxTaskEnabled.Location = new System.Drawing.Point(625, 120);
+            this.CheckBoxTaskEnabled.Location = new System.Drawing.Point(317, 375);
             this.CheckBoxTaskEnabled.Name = "CheckBoxTaskEnabled";
             this.CheckBoxTaskEnabled.Size = new System.Drawing.Size(77, 20);
             this.CheckBoxTaskEnabled.TabIndex = 17;
             this.CheckBoxTaskEnabled.Text = "Enabled";
             this.CheckBoxTaskEnabled.UseVisualStyleBackColor = true;
-            // 
-            // TextBoxTaskDisplayOrder
-            // 
-            this.TextBoxTaskDisplayOrder.Location = new System.Drawing.Point(580, 72);
-            this.TextBoxTaskDisplayOrder.Name = "TextBoxTaskDisplayOrder";
-            this.TextBoxTaskDisplayOrder.Size = new System.Drawing.Size(166, 22);
-            this.TextBoxTaskDisplayOrder.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(580, 53);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 16);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Display Order";
             // 
             // TextBoxTaskName
             // 
@@ -621,8 +601,6 @@
         private System.Windows.Forms.Button ButtonCancelTask;
         private System.Windows.Forms.Button ButtonSaveTask;
         private System.Windows.Forms.CheckBox CheckBoxTaskEnabled;
-        private System.Windows.Forms.TextBox TextBoxTaskDisplayOrder;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TextBoxTaskName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button ButtonNewTask;
