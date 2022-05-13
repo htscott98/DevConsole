@@ -89,7 +89,7 @@
             this.TabControl.Location = new System.Drawing.Point(12, 12);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(760, 437);
+            this.TabControl.Size = new System.Drawing.Size(960, 637);
             this.TabControl.TabIndex = 0;
             // 
             // TabTasks
@@ -112,7 +112,7 @@
             this.TabTasks.Location = new System.Drawing.Point(4, 25);
             this.TabTasks.Name = "TabTasks";
             this.TabTasks.Padding = new System.Windows.Forms.Padding(3);
-            this.TabTasks.Size = new System.Drawing.Size(752, 408);
+            this.TabTasks.Size = new System.Drawing.Size(952, 608);
             this.TabTasks.TabIndex = 0;
             this.TabTasks.Text = "Tasks";
             this.TabTasks.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@
             // 
             this.LinkNewTaskActivity.ActiveLinkColor = System.Drawing.Color.Blue;
             this.LinkNewTaskActivity.LinkColor = System.Drawing.Color.Blue;
-            this.LinkNewTaskActivity.Location = new System.Drawing.Point(300, 167);
+            this.LinkNewTaskActivity.Location = new System.Drawing.Point(300, 187);
             this.LinkNewTaskActivity.Name = "LinkNewTaskActivity";
             this.LinkNewTaskActivity.Size = new System.Drawing.Size(446, 22);
             this.LinkNewTaskActivity.TabIndex = 27;
@@ -135,9 +135,9 @@
             this.FlowLayoutPanelTaskActivity.AutoScroll = true;
             this.FlowLayoutPanelTaskActivity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FlowLayoutPanelTaskActivity.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlowLayoutPanelTaskActivity.Location = new System.Drawing.Point(300, 192);
+            this.FlowLayoutPanelTaskActivity.Location = new System.Drawing.Point(300, 212);
             this.FlowLayoutPanelTaskActivity.Name = "FlowLayoutPanelTaskActivity";
-            this.FlowLayoutPanelTaskActivity.Size = new System.Drawing.Size(446, 130);
+            this.FlowLayoutPanelTaskActivity.Size = new System.Drawing.Size(646, 349);
             this.FlowLayoutPanelTaskActivity.TabIndex = 26;
             // 
             // TextBoxTaskDescription
@@ -145,7 +145,7 @@
             this.TextBoxTaskDescription.Location = new System.Drawing.Point(300, 116);
             this.TextBoxTaskDescription.Multiline = true;
             this.TextBoxTaskDescription.Name = "TextBoxTaskDescription";
-            this.TextBoxTaskDescription.Size = new System.Drawing.Size(446, 48);
+            this.TextBoxTaskDescription.Size = new System.Drawing.Size(646, 68);
             this.TextBoxTaskDescription.TabIndex = 18;
             // 
             // label10
@@ -160,7 +160,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(580, 53);
+            this.label9.Location = new System.Drawing.Point(628, 53);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(27, 16);
             this.label9.TabIndex = 22;
@@ -169,9 +169,9 @@
             // ComboBoxTaskList
             // 
             this.ComboBoxTaskList.FormattingEnabled = true;
-            this.ComboBoxTaskList.Location = new System.Drawing.Point(580, 70);
+            this.ComboBoxTaskList.Location = new System.Drawing.Point(628, 72);
             this.ComboBoxTaskList.Name = "ComboBoxTaskList";
-            this.ComboBoxTaskList.Size = new System.Drawing.Size(166, 24);
+            this.ComboBoxTaskList.Size = new System.Drawing.Size(235, 24);
             this.ComboBoxTaskList.TabIndex = 16;
             // 
             // FlowLayoutPanelTaskLabels
@@ -180,12 +180,12 @@
             this.FlowLayoutPanelTaskLabels.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FlowLayoutPanelTaskLabels.Location = new System.Drawing.Point(300, 6);
             this.FlowLayoutPanelTaskLabels.Name = "FlowLayoutPanelTaskLabels";
-            this.FlowLayoutPanelTaskLabels.Size = new System.Drawing.Size(446, 44);
+            this.FlowLayoutPanelTaskLabels.Size = new System.Drawing.Size(646, 44);
             this.FlowLayoutPanelTaskLabels.TabIndex = 20;
             // 
             // ButtonDeleteTask
             // 
-            this.ButtonDeleteTask.Location = new System.Drawing.Point(415, 367);
+            this.ButtonDeleteTask.Location = new System.Drawing.Point(615, 567);
             this.ButtonDeleteTask.Name = "ButtonDeleteTask";
             this.ButtonDeleteTask.Size = new System.Drawing.Size(104, 35);
             this.ButtonDeleteTask.TabIndex = 22;
@@ -195,7 +195,7 @@
             // 
             // ButtonCancelTask
             // 
-            this.ButtonCancelTask.Location = new System.Drawing.Point(525, 367);
+            this.ButtonCancelTask.Location = new System.Drawing.Point(725, 567);
             this.ButtonCancelTask.Name = "ButtonCancelTask";
             this.ButtonCancelTask.Size = new System.Drawing.Size(109, 35);
             this.ButtonCancelTask.TabIndex = 21;
@@ -205,7 +205,7 @@
             // 
             // ButtonSaveTask
             // 
-            this.ButtonSaveTask.Location = new System.Drawing.Point(640, 367);
+            this.ButtonSaveTask.Location = new System.Drawing.Point(840, 567);
             this.ButtonSaveTask.Name = "ButtonSaveTask";
             this.ButtonSaveTask.Size = new System.Drawing.Size(106, 35);
             this.ButtonSaveTask.TabIndex = 20;
@@ -216,7 +216,7 @@
             // CheckBoxTaskEnabled
             // 
             this.CheckBoxTaskEnabled.AutoSize = true;
-            this.CheckBoxTaskEnabled.Location = new System.Drawing.Point(300, 328);
+            this.CheckBoxTaskEnabled.Location = new System.Drawing.Point(869, 74);
             this.CheckBoxTaskEnabled.Name = "CheckBoxTaskEnabled";
             this.CheckBoxTaskEnabled.Size = new System.Drawing.Size(77, 20);
             this.CheckBoxTaskEnabled.TabIndex = 17;
@@ -227,7 +227,7 @@
             // 
             this.TextBoxTaskName.Location = new System.Drawing.Point(300, 72);
             this.TextBoxTaskName.Name = "TextBoxTaskName";
-            this.TextBoxTaskName.Size = new System.Drawing.Size(274, 22);
+            this.TextBoxTaskName.Size = new System.Drawing.Size(322, 22);
             this.TextBoxTaskName.TabIndex = 13;
             // 
             // label8
@@ -241,7 +241,7 @@
             // 
             // ButtonNewTask
             // 
-            this.ButtonNewTask.Location = new System.Drawing.Point(159, 367);
+            this.ButtonNewTask.Location = new System.Drawing.Point(159, 567);
             this.ButtonNewTask.Name = "ButtonNewTask";
             this.ButtonNewTask.Size = new System.Drawing.Size(135, 35);
             this.ButtonNewTask.TabIndex = 11;
@@ -254,7 +254,7 @@
             this.DataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewTasks.Location = new System.Drawing.Point(6, 6);
             this.DataGridViewTasks.Name = "DataGridViewTasks";
-            this.DataGridViewTasks.Size = new System.Drawing.Size(288, 355);
+            this.DataGridViewTasks.Size = new System.Drawing.Size(288, 555);
             this.DataGridViewTasks.TabIndex = 10;
             this.DataGridViewTasks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTasks_CellClick);
             this.DataGridViewTasks.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewTasks_DataBindingComplete);
@@ -274,14 +274,14 @@
             this.TabLists.Location = new System.Drawing.Point(4, 24);
             this.TabLists.Name = "TabLists";
             this.TabLists.Padding = new System.Windows.Forms.Padding(3);
-            this.TabLists.Size = new System.Drawing.Size(752, 409);
+            this.TabLists.Size = new System.Drawing.Size(952, 609);
             this.TabLists.TabIndex = 1;
             this.TabLists.Text = "Lists";
             this.TabLists.UseVisualStyleBackColor = true;
             // 
             // ButtonDeleteList
             // 
-            this.ButtonDeleteList.Location = new System.Drawing.Point(366, 225);
+            this.ButtonDeleteList.Location = new System.Drawing.Point(475, 313);
             this.ButtonDeleteList.Name = "ButtonDeleteList";
             this.ButtonDeleteList.Size = new System.Drawing.Size(104, 35);
             this.ButtonDeleteList.TabIndex = 9;
@@ -291,7 +291,7 @@
             // 
             // ButtonCancelList
             // 
-            this.ButtonCancelList.Location = new System.Drawing.Point(476, 225);
+            this.ButtonCancelList.Location = new System.Drawing.Point(585, 313);
             this.ButtonCancelList.Name = "ButtonCancelList";
             this.ButtonCancelList.Size = new System.Drawing.Size(109, 35);
             this.ButtonCancelList.TabIndex = 8;
@@ -301,7 +301,7 @@
             // 
             // ButtonSaveList
             // 
-            this.ButtonSaveList.Location = new System.Drawing.Point(591, 225);
+            this.ButtonSaveList.Location = new System.Drawing.Point(700, 313);
             this.ButtonSaveList.Name = "ButtonSaveList";
             this.ButtonSaveList.Size = new System.Drawing.Size(104, 35);
             this.ButtonSaveList.TabIndex = 7;
@@ -312,7 +312,7 @@
             // CheckBoxListEnabled
             // 
             this.CheckBoxListEnabled.AutoSize = true;
-            this.CheckBoxListEnabled.Location = new System.Drawing.Point(576, 183);
+            this.CheckBoxListEnabled.Location = new System.Drawing.Point(685, 271);
             this.CheckBoxListEnabled.Name = "CheckBoxListEnabled";
             this.CheckBoxListEnabled.Size = new System.Drawing.Size(77, 20);
             this.CheckBoxListEnabled.TabIndex = 6;
@@ -321,7 +321,7 @@
             // 
             // TextBoxListDisplayOrder
             // 
-            this.TextBoxListDisplayOrder.Location = new System.Drawing.Point(366, 181);
+            this.TextBoxListDisplayOrder.Location = new System.Drawing.Point(475, 269);
             this.TextBoxListDisplayOrder.Name = "TextBoxListDisplayOrder";
             this.TextBoxListDisplayOrder.Size = new System.Drawing.Size(166, 22);
             this.TextBoxListDisplayOrder.TabIndex = 5;
@@ -329,7 +329,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(363, 162);
+            this.label2.Location = new System.Drawing.Point(472, 250);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 16);
             this.label2.TabIndex = 4;
@@ -337,7 +337,7 @@
             // 
             // TextBoxListName
             // 
-            this.TextBoxListName.Location = new System.Drawing.Point(366, 137);
+            this.TextBoxListName.Location = new System.Drawing.Point(475, 225);
             this.TextBoxListName.Name = "TextBoxListName";
             this.TextBoxListName.Size = new System.Drawing.Size(329, 22);
             this.TextBoxListName.TabIndex = 3;
@@ -345,7 +345,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(363, 118);
+            this.label1.Location = new System.Drawing.Point(472, 206);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 2;
@@ -353,7 +353,7 @@
             // 
             // ButtonNewList
             // 
-            this.ButtonNewList.Location = new System.Drawing.Point(159, 367);
+            this.ButtonNewList.Location = new System.Drawing.Point(159, 567);
             this.ButtonNewList.Name = "ButtonNewList";
             this.ButtonNewList.Size = new System.Drawing.Size(135, 35);
             this.ButtonNewList.TabIndex = 1;
@@ -366,7 +366,7 @@
             this.DataGridViewLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewLists.Location = new System.Drawing.Point(6, 6);
             this.DataGridViewLists.Name = "DataGridViewLists";
-            this.DataGridViewLists.Size = new System.Drawing.Size(288, 355);
+            this.DataGridViewLists.Size = new System.Drawing.Size(288, 555);
             this.DataGridViewLists.TabIndex = 0;
             this.DataGridViewLists.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewLists_CellClick);
             this.DataGridViewLists.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewLists_DataBindingComplete);
@@ -391,7 +391,7 @@
             this.TabLabels.Location = new System.Drawing.Point(4, 24);
             this.TabLabels.Name = "TabLabels";
             this.TabLabels.Padding = new System.Windows.Forms.Padding(3);
-            this.TabLabels.Size = new System.Drawing.Size(752, 409);
+            this.TabLabels.Size = new System.Drawing.Size(952, 609);
             this.TabLabels.TabIndex = 2;
             this.TabLabels.Text = "Labels";
             this.TabLabels.UseVisualStyleBackColor = true;
@@ -402,12 +402,12 @@
             this.FlowLayoutPanelLabels.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FlowLayoutPanelLabels.Location = new System.Drawing.Point(6, 6);
             this.FlowLayoutPanelLabels.Name = "FlowLayoutPanelLabels";
-            this.FlowLayoutPanelLabels.Size = new System.Drawing.Size(283, 355);
+            this.FlowLayoutPanelLabels.Size = new System.Drawing.Size(283, 555);
             this.FlowLayoutPanelLabels.TabIndex = 26;
             // 
             // LabelTest
             // 
-            this.LabelTest.Location = new System.Drawing.Point(475, 326);
+            this.LabelTest.Location = new System.Drawing.Point(575, 443);
             this.LabelTest.Name = "LabelTest";
             this.LabelTest.Size = new System.Drawing.Size(109, 35);
             this.LabelTest.TabIndex = 25;
@@ -416,7 +416,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(542, 116);
+            this.label6.Location = new System.Drawing.Point(642, 217);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 16);
             this.label6.TabIndex = 24;
@@ -425,7 +425,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(332, 116);
+            this.label5.Location = new System.Drawing.Point(432, 217);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 16);
             this.label5.TabIndex = 23;
@@ -435,7 +435,7 @@
             // 
             this.ComboBoxLabelBackColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.ComboBoxLabelBackColor.FormattingEnabled = true;
-            this.ComboBoxLabelBackColor.Location = new System.Drawing.Point(542, 135);
+            this.ComboBoxLabelBackColor.Location = new System.Drawing.Point(642, 236);
             this.ComboBoxLabelBackColor.Name = "ComboBoxLabelBackColor";
             this.ComboBoxLabelBackColor.Size = new System.Drawing.Size(179, 23);
             this.ComboBoxLabelBackColor.TabIndex = 15;
@@ -446,7 +446,7 @@
             // 
             this.ComboBoxLabelTextColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.ComboBoxLabelTextColor.FormattingEnabled = true;
-            this.ComboBoxLabelTextColor.Location = new System.Drawing.Point(332, 135);
+            this.ComboBoxLabelTextColor.Location = new System.Drawing.Point(432, 236);
             this.ComboBoxLabelTextColor.Name = "ComboBoxLabelTextColor";
             this.ComboBoxLabelTextColor.Size = new System.Drawing.Size(184, 23);
             this.ComboBoxLabelTextColor.TabIndex = 14;
@@ -455,7 +455,7 @@
             // 
             // ButtonDeleteLabel
             // 
-            this.ButtonDeleteLabel.Location = new System.Drawing.Point(332, 225);
+            this.ButtonDeleteLabel.Location = new System.Drawing.Point(432, 326);
             this.ButtonDeleteLabel.Name = "ButtonDeleteLabel";
             this.ButtonDeleteLabel.Size = new System.Drawing.Size(104, 35);
             this.ButtonDeleteLabel.TabIndex = 20;
@@ -465,7 +465,7 @@
             // 
             // ButtonCancelLabel
             // 
-            this.ButtonCancelLabel.Location = new System.Drawing.Point(475, 225);
+            this.ButtonCancelLabel.Location = new System.Drawing.Point(575, 326);
             this.ButtonCancelLabel.Name = "ButtonCancelLabel";
             this.ButtonCancelLabel.Size = new System.Drawing.Size(109, 35);
             this.ButtonCancelLabel.TabIndex = 19;
@@ -475,7 +475,7 @@
             // 
             // ButtonSaveLabel
             // 
-            this.ButtonSaveLabel.Location = new System.Drawing.Point(617, 225);
+            this.ButtonSaveLabel.Location = new System.Drawing.Point(717, 326);
             this.ButtonSaveLabel.Name = "ButtonSaveLabel";
             this.ButtonSaveLabel.Size = new System.Drawing.Size(104, 35);
             this.ButtonSaveLabel.TabIndex = 18;
@@ -486,7 +486,7 @@
             // CheckBoxLabelEnabled
             // 
             this.CheckBoxLabelEnabled.AutoSize = true;
-            this.CheckBoxLabelEnabled.Location = new System.Drawing.Point(593, 183);
+            this.CheckBoxLabelEnabled.Location = new System.Drawing.Point(693, 284);
             this.CheckBoxLabelEnabled.Name = "CheckBoxLabelEnabled";
             this.CheckBoxLabelEnabled.Size = new System.Drawing.Size(77, 20);
             this.CheckBoxLabelEnabled.TabIndex = 17;
@@ -495,7 +495,7 @@
             // 
             // TextBoxLabelDisplayOrder
             // 
-            this.TextBoxLabelDisplayOrder.Location = new System.Drawing.Point(332, 181);
+            this.TextBoxLabelDisplayOrder.Location = new System.Drawing.Point(432, 282);
             this.TextBoxLabelDisplayOrder.Name = "TextBoxLabelDisplayOrder";
             this.TextBoxLabelDisplayOrder.Size = new System.Drawing.Size(184, 22);
             this.TextBoxLabelDisplayOrder.TabIndex = 16;
@@ -503,7 +503,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(332, 161);
+            this.label3.Location = new System.Drawing.Point(432, 262);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 16);
             this.label3.TabIndex = 14;
@@ -511,7 +511,7 @@
             // 
             // TextBoxLabelName
             // 
-            this.TextBoxLabelName.Location = new System.Drawing.Point(330, 91);
+            this.TextBoxLabelName.Location = new System.Drawing.Point(430, 192);
             this.TextBoxLabelName.Name = "TextBoxLabelName";
             this.TextBoxLabelName.Size = new System.Drawing.Size(391, 22);
             this.TextBoxLabelName.TabIndex = 13;
@@ -520,7 +520,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(332, 72);
+            this.label4.Location = new System.Drawing.Point(432, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 12;
@@ -528,7 +528,7 @@
             // 
             // ButtonNewLabel
             // 
-            this.ButtonNewLabel.Location = new System.Drawing.Point(154, 367);
+            this.ButtonNewLabel.Location = new System.Drawing.Point(154, 567);
             this.ButtonNewLabel.Name = "ButtonNewLabel";
             this.ButtonNewLabel.Size = new System.Drawing.Size(135, 35);
             this.ButtonNewLabel.TabIndex = 11;
@@ -540,14 +540,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.TabControl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 500);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MaximumSize = new System.Drawing.Size(1000, 700);
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "FormNewTasks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DevConsole";

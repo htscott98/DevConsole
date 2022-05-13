@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,6 @@ namespace DevConsole
         }
 
         #region Main
-
         private void FormNewTasks_Shown(object sender, EventArgs e)
         {
             DisableTaskControls();
@@ -91,7 +91,6 @@ namespace DevConsole
 
 
         }
-
         #endregion
 
         #region Tasks
@@ -235,7 +234,8 @@ namespace DevConsole
                     Label activityLabel = new Label();
                     activityLabel.Margin = new Padding(0);
                     activityLabel.Padding = new Padding(0);
-                    activityLabel.Width = Convert.ToInt32(Math.Round(FlowLayoutPanelTaskActivity.Width * .90, 0, MidpointRounding.AwayFromZero));
+                    activityLabel.AutoSize = true;
+                    activityLabel.MaximumSize = new Size(Convert.ToInt32(Math.Round(FlowLayoutPanelTaskActivity.Width * .90, 0, MidpointRounding.AwayFromZero)), 0);
                     activityLabel.Text = activity.Activity;
 
                     FlowLayoutPanelTaskActivity.Controls.Add(activityLabel);
@@ -898,6 +898,7 @@ namespace DevConsole
                 GlobalCode.ExceptionHandler(ex);
             }
         }
+
 
 
 
