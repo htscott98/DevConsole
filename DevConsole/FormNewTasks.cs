@@ -451,7 +451,6 @@ namespace DevConsole
             taskTask = null;
         }
 
-
         #endregion
 
         #region Lists
