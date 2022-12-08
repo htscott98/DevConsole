@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace DevConsole
 {
@@ -83,7 +84,16 @@ namespace DevConsole
             if (repo != null)
             {
                 TextBoxCode.Text = "";
-                TextBoxCode.Text = repo.Code;
+                string[] array = repo.Code.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+
+                int codeLine = 1;
+                foreach (string item in array)
+                {
+                    TextBoxCode.AppendText(codeLine.ToString() + ". " + item);
+                    TextBoxCode.AppendText("\n");
+                    codeLine++;
+                }
             }
 
         }
@@ -106,10 +116,22 @@ namespace DevConsole
 
                         foreach (RepoCode code in codeList)
                         {
+
                             TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                             TextBoxCode.AppendText("START: " + repo.Name + " (" + code.FormName + ")\n");
                             TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 10, FontStyle.Regular);
-                            TextBoxCode.AppendText(code.Code + "\n");
+
+
+                            string[] array = code.Code.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+
+                            int codeLine = 1;
+                            foreach (string item in array)
+                            {
+                                TextBoxCode.AppendText(codeLine.ToString() + ". " + item);
+                                TextBoxCode.AppendText("\n");
+                                codeLine++;
+                            }
                             TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                             TextBoxCode.AppendText("END: " + repo.Name + " (" + code.FormName + ")\n\n");
                         }
@@ -131,7 +153,16 @@ namespace DevConsole
                         TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                         TextBoxCode.AppendText("START: " + repo.Name + " (" + code.FormName + ")\n");
                         TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 10, FontStyle.Regular);
-                        TextBoxCode.AppendText(code.Code + "\n");
+
+                        string[] array = code.Code.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+                        int codeLine = 1;
+                        foreach (string item in array)
+                        {
+                            TextBoxCode.AppendText(codeLine.ToString() + ". " + item);
+                            TextBoxCode.AppendText("\n");
+                            codeLine++;
+                        }
                         TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                         TextBoxCode.AppendText("END: " + repo.Name + " (" + code.FormName + ")\n\n");
                     }
@@ -208,7 +239,7 @@ namespace DevConsole
 
 
             TextBoxCode.Select(allPositions[listPosition], TextBoxFind.Text.Length);
-            TextBoxCode.SelectionColor = Color.Orange;
+            TextBoxCode.SelectionColor = Color.OrangeRed;
             TextBoxCode.ScrollToCaret();
 
             if (allPositions.Count > 0)
