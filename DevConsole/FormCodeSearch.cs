@@ -84,16 +84,7 @@ namespace DevConsole
             if (repo != null)
             {
                 TextBoxCode.Text = "";
-                string[] array = repo.Code.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-
-                int codeLine = 1;
-                foreach (string item in array)
-                {
-                    TextBoxCode.AppendText(codeLine.ToString() + ". " + item);
-                    TextBoxCode.AppendText("\n");
-                    codeLine++;
-                }
+                TextBoxCode.Text += repo.Code;
             }
 
         }
@@ -120,18 +111,8 @@ namespace DevConsole
                             TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                             TextBoxCode.AppendText("START: " + repo.Name + " (" + code.FormName + ")\n");
                             TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 10, FontStyle.Regular);
-
-
-                            string[] array = code.Code.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-
-                            int codeLine = 1;
-                            foreach (string item in array)
-                            {
-                                TextBoxCode.AppendText(codeLine.ToString() + ". " + item);
-                                TextBoxCode.AppendText("\n");
-                                codeLine++;
-                            }
+                            TextBoxCode.AppendText(code.Code);
+                            TextBoxCode.AppendText("\n");
                             TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                             TextBoxCode.AppendText("END: " + repo.Name + " (" + code.FormName + ")\n\n");
                         }
@@ -153,16 +134,8 @@ namespace DevConsole
                         TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                         TextBoxCode.AppendText("START: " + repo.Name + " (" + code.FormName + ")\n");
                         TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 10, FontStyle.Regular);
-
-                        string[] array = code.Code.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-                        int codeLine = 1;
-                        foreach (string item in array)
-                        {
-                            TextBoxCode.AppendText(codeLine.ToString() + ". " + item);
-                            TextBoxCode.AppendText("\n");
-                            codeLine++;
-                        }
+                        TextBoxCode.AppendText(code.Code);
+                        TextBoxCode.AppendText("\n");
                         TextBoxCode.SelectionFont = new Font(TextBoxCode.Font.Name, 14, FontStyle.Bold);
                         TextBoxCode.AppendText("END: " + repo.Name + " (" + code.FormName + ")\n\n");
                     }
