@@ -38,6 +38,7 @@
             this.ButtonLastInstance = new System.Windows.Forms.Button();
             this.ButtonNextInstance = new System.Windows.Forms.Button();
             this.LabelListCount = new System.Windows.Forms.Label();
+            this.ButtonClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ComboBoxSoftware
@@ -70,7 +71,7 @@
             this.TextBoxCode.Location = new System.Drawing.Point(271, 43);
             this.TextBoxCode.Name = "TextBoxCode";
             this.TextBoxCode.ReadOnly = true;
-            this.TextBoxCode.Size = new System.Drawing.Size(501, 406);
+            this.TextBoxCode.Size = new System.Drawing.Size(888, 406);
             this.TextBoxCode.TabIndex = 4;
             this.TextBoxCode.Text = "";
             // 
@@ -113,7 +114,7 @@
             // 
             // ButtonNextInstance
             // 
-            this.ButtonNextInstance.Location = new System.Drawing.Point(618, 12);
+            this.ButtonNextInstance.Location = new System.Drawing.Point(618, 11);
             this.ButtonNextInstance.Name = "ButtonNextInstance";
             this.ButtonNextInstance.Size = new System.Drawing.Size(73, 25);
             this.ButtonNextInstance.TabIndex = 9;
@@ -124,17 +125,29 @@
             // LabelListCount
             // 
             this.LabelListCount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LabelListCount.Location = new System.Drawing.Point(697, 12);
+            this.LabelListCount.Location = new System.Drawing.Point(697, 11);
             this.LabelListCount.Name = "LabelListCount";
-            this.LabelListCount.Size = new System.Drawing.Size(75, 24);
+            this.LabelListCount.Size = new System.Drawing.Size(75, 25);
             this.LabelListCount.TabIndex = 10;
             this.LabelListCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ButtonClear
+            // 
+            this.ButtonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonClear.Location = new System.Drawing.Point(1055, 52);
+            this.ButtonClear.Name = "ButtonClear";
+            this.ButtonClear.Size = new System.Drawing.Size(75, 25);
+            this.ButtonClear.TabIndex = 11;
+            this.ButtonClear.Text = "Clear";
+            this.ButtonClear.UseVisualStyleBackColor = true;
+            this.ButtonClear.Click += new System.EventHandler(this.ButtonClear_Click);
             // 
             // FormCodeSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(1171, 461);
+            this.Controls.Add(this.ButtonClear);
             this.Controls.Add(this.LabelListCount);
             this.Controls.Add(this.ButtonNextInstance);
             this.Controls.Add(this.ButtonLastInstance);
@@ -167,5 +180,6 @@
         private System.Windows.Forms.Button ButtonLastInstance;
         private System.Windows.Forms.Button ButtonNextInstance;
         private System.Windows.Forms.Label LabelListCount;
+        private System.Windows.Forms.Button ButtonClear;
     }
 }

@@ -27,6 +27,7 @@ namespace DevConsole
         private void FormCodeSearch_Load(object sender, EventArgs e)
         {
             PopulateTreeView();
+            HandleClearButton();
         }
 
         private void PopulateTreeView()
@@ -52,6 +53,7 @@ namespace DevConsole
             TextBoxFind.Text = "";
             LabelListCount.Text = "";
             ListBoxForms.Items.Clear();
+            HandleClearButton();
 
             if (ComboBoxSoftware.Text == "")
             {
@@ -67,8 +69,8 @@ namespace DevConsole
 
                 foreach (RepoCode code in codeList)
                 {
-
                     ListBoxForms.Items.Add(code);
+
                 }
             }
 
@@ -85,7 +87,10 @@ namespace DevConsole
             {
                 TextBoxCode.Text = "";
                 TextBoxCode.Text += repo.Code;
+
             }
+
+            HandleClearButton();
 
         }
 
@@ -140,6 +145,10 @@ namespace DevConsole
                         TextBoxCode.AppendText("END: " + repo.Name + " (" + code.FormName + ")\n\n");
                     }
                 }
+
+                HandleClearButton();
+
+
             }
             catch (Exception ex)
             {
@@ -255,6 +264,25 @@ namespace DevConsole
         private void ButtonLastInstance_Click(object sender, EventArgs e)
         {
             LastPosition();
+        }
+
+        private void HandleClearButton()
+        {
+            if (TextBoxCode.Text.Length > 0)
+            {
+                ButtonClear.Enabled = true;
+            }
+            else
+            {
+                ButtonClear.Enabled = false;
+            }
+        }
+
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            TextBoxCode.Text = "";
+            TextBoxFind.Text = "";
+            HandleClearButton();
         }
     }
 }
